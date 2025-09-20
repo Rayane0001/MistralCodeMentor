@@ -1,10 +1,10 @@
 // @file frontend/src/types/index.ts
-
 export interface CodeState {
   content: string
   language: 'python' | 'javascript'
   cursorPosition: number
   hasErrors: boolean
+  errors: string[]            // added
 }
 
 export interface HintState {
@@ -23,8 +23,12 @@ export interface AIHint {
 export interface ExecutionResult {
   output: string
   errors: string[]
+  warnings?: string[]
   executionTime: number
+  memoryUsed?: number
+  cpuTime?: number
   status: 'success' | 'error' | 'timeout'
+  exitCode?: number
 }
 
 export interface Exercise {
